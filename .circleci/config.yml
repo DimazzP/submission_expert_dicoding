@@ -10,7 +10,11 @@ jobs:
       - checkout
       - restore_cache:
           key: android-orb-v1-
-      # Tambahkan langkah ini untuk menginstal Java 17
+      # Tambahkan langkah ini untuk mengimpor kunci publik dari Google
+      - run:
+          name: Add Google Cloud public key
+          command: |
+            sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C0BA5CE6DC6315A3
       - run:
           name: Update APT repositories
           command: sudo apt-get update
