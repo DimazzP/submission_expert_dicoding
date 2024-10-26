@@ -28,27 +28,13 @@ android {
         jvmTarget = "1.8"
     }
     buildTypes {
-//        release {
-//            isMinifyEnabled = false
-//            proguardFiles(
-//                getDefaultProguardFile("proguard-android-optimize.txt"),
-//                "proguard-rules.pro"
-//            )
-//            buildConfigField("String", "API_KEY", "\"Bearer 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\"")
-//            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
-//        }
-//        debug {
-//            buildConfigField("String", "API_KEY", "\"Bearer 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\"")
-//            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
-//        }
+
     }
     buildFeatures {
         buildConfig = true
         viewBinding = true
     }
-//    viewBinding {
-//        enable = true
-//    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
