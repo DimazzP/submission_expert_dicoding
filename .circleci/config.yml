@@ -5,13 +5,13 @@ orbs:
 
 jobs:
   build:
+    docker:
+      - image: 'cimg/openjdk:17.0' # Menambahkan image OpenJDK 17
     executor: android/android
     steps:
       - checkout
       - restore_cache:
           key: android-orb-v1-
-      - docker:
-        - image: 'cimg/openjdk:17.0'
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
