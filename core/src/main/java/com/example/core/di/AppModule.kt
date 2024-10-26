@@ -1,15 +1,9 @@
 package com.example.core.di
 
 import android.content.Context
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.PreferenceDataStoreFactory
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.room.Room
 import com.example.core.data.local.databases.FavoriteRoomDatabase
 import com.example.core.data.local.datasources.FavoriteLocalDataSource
-import com.example.core.data.local.datastore.SettingPreferences
-import com.example.core.data.local.datastore.dataStore
 import com.example.core.data.local.rooms.FavoriteDao
 import com.example.core.data.remote.datasource.UserRemoteDataSource
 import com.example.core.data.remote.services.ApiConfig
@@ -34,12 +28,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-
-//    @Provides
-//    @Singleton
-//    fun provideApiService(): ApiService {
-//        return ApiConfig.getApiService()
-//    }
 
     @Provides
     @Singleton
@@ -75,20 +63,6 @@ object AppModule {
     @Singleton
     fun provideGetUserDetailUseCase(userRepository: UserRepository): GetUserDetailUseCase {
         return GetUserDetailUseCase(userRepository)
-    }
-
-    @Provides
-    @Singleton
-    fun provideDataStore(@ApplicationContext context: Context): DataStore<Preferences> {
-        return PreferenceDataStoreFactory.create(
-            produceFile = { context.preferencesDataStoreFile("settings") }
-        )
-    }
-
-    @Provides
-    @Singleton
-    fun provideSettingPreferences(dataStore: DataStore<Preferences>): SettingPreferences {
-        return SettingPreferences.getInstance(dataStore)
     }
 
     @Provides

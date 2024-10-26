@@ -19,7 +19,19 @@ android {
     }
 
     buildTypes {
-
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            buildConfigField("String", "API_KEY", "\"Bearer ghp_1AsBortAv0scUbBhsNEudvD5uDjMf53HFOs6\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
+        }
+        debug {
+            buildConfigField("String", "API_KEY", "\"Bearer ghp_1AsBortAv0scUbBhsNEudvD5uDjMf53HFOs6\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
