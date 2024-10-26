@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">submission_navigation</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="searchbar_hint">Siapa yang anda cari?</string>
+    <string name="tab_text_1">Followers</string>
+    <string name="tab_text_2">Following</string>
+    <string name="splash_text">GIT</string>
+    <string name="creator">By Dimas Pratama</string>
+    <string name="image">image</string>
+    <string name="find_member">Find Github Member</string>
+    <string name="light_theme">Light Theme</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="title_favorite">Favorite</string>
+</resources>

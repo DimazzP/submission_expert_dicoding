@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="btn_github">#7140c8</color>
+    <color name="btn_github_trans">#557140c8</color>
+    <color name="black">#FF000000</color>
+    <color name="text_black">#1E1E1E</color>
+    <color name="text_white">#EFEFEF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="darkBlue">#000000</color>
+    <color name="gray_text">#808080</color>
+    <color name="window_background">#EBEAEF</color>
+    <color name="primary">#160D59</color>
+    <color name="secondary">#181240</color>
+</resources>
