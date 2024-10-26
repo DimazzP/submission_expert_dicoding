@@ -6,15 +6,20 @@ orbs:
 jobs:
   build:
     docker:
-      - image: 'cimg/openjdk:17.0' # Menambahkan image OpenJDK 17
+      - image: 'cimg/openjdk:17.0'
     executor: android/android
+    environment:
+      ANDROID_HOME: /opt/android_sdk # Menyesuaikan dengan lingkungan CI di CircleCI
     steps:
       - checkout
-      - restore_cache:
-          key: android-orb-v1-
+      - run:
+          name: Set Android SDK Path in local.properties for CI
+          command: echo "sdk.dir=/opt/android_sdk" > local.properties
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
+      - restore_cache:
+          key: android-orb-v1-
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
