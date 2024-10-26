@@ -36,7 +36,6 @@ class HomeFragment : Fragment() {
     private var adapter: HomeAdapter? = null
     private lateinit var splitInstallManager: SplitInstallManager
 
-    private val mainModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -117,18 +116,6 @@ class HomeFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.isLoading.collectLatest { isLoading ->
                 showLoading(isLoading)
-            }
-        }
-
-        mainModel.getThemeSettings().observe(viewLifecycleOwner) {
-            if (it) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                binding.textTheme.text = context?.getString(R.string.dark_theme)
-                binding.themeSwitch.isChecked = true
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                binding.textTheme.text = context?.getString(R.string.light_theme)
-                binding.themeSwitch.isChecked = false
             }
         }
     }
