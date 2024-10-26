@@ -1,35 +1,17 @@
 version: 2.1
 
-executors:
-  java17:
-    docker:
-      - image: 'cimg/openjdk:17.0'  # Image ini sudah memiliki Java 17
-
 orbs:
   android: circleci/android@0.2.1
-  maven: circleci/maven@1.3.0
 
 jobs:
-  maven_test:
-    executor: java17
-    steps:
-      - checkout
-      - maven/test:
-          command: '-X compile'  # Menjalankan Maven dengan Java 17
-
-  android_build:
+  build:
     executor: android/android
     steps:
       - checkout
       - restore_cache:
           key: android-orb-v1-
-      - run:
-          name: Install OpenJDK 17
-          command: |
-            sudo apt-get update && sudo apt-get install -y openjdk-17-jdk
-            sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
-            sudo update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
-            java -version
+      - docker:
+        - image: 'cimg/openjdk:17.0'
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
@@ -55,9 +37,3 @@ jobs:
       - store_artifacts:
           path: app/build/outputs/apk/debug/
           destination: artifact-file
-
-workflows:
-  build_and_test:
-    jobs:
-      - maven_test  # Menjalankan pengujian Maven terlebih dahulu
-      - android_build  # Kemudian menjalankan build Android
