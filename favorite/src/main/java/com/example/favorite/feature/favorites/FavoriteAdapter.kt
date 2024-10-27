@@ -30,7 +30,7 @@ class FavoriteAdapter(private val onItemClick: (Favorite) -> Unit?) : ListAdapte
                 .into(binding.profileImage)
             binding.textName.text = user.username
             binding.root.setOnClickListener {
-                val position = adapterPosition
+                val position = bindingAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     onItemClick(user)
                 }

@@ -9,7 +9,7 @@ jobs:
       - image: cimg/android:2024.10-ndk
     executor: android/android
     environment:
-      ANDROID_HOME: /opt/android_sdk # Menyesuaikan dengan lingkungan CI di CircleCI
+      ANDROID_HOME: /opt/android_sdk
     steps:
       - checkout
       - run:
