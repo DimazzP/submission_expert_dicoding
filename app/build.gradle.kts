@@ -67,7 +67,8 @@ dependencies {
     implementation("com.google.android.ads:mediation-test-suite:3.0.0")
     implementation("androidx.test.espresso:espresso-contrib:3.5.1")
     implementation("com.google.dagger:hilt-android:2.51.1")
-    implementation("com.google.android.play:core:1.10.3")
+//    implementation("com.google.android.play:core:1.10.3")
+    implementation("com.google.android.play:feature-delivery:2.1.0")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
     ksp("androidx.room:room-compiler:2.6.1")
 }

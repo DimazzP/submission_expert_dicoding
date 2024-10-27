@@ -54,58 +54,5 @@ class HomeViewModel @Inject constructor(
     companion object {
         private const val TAG = "HomeViewModel"
     }
-//    private val _userData = MutableLiveData<List<SearchUser>?>()
-//    val userData: LiveData<List<SearchUser>?> = _userData
-//    private val _isLoading = MutableLiveData<Boolean>()
-//    val isLoading: LiveData<Boolean> = _isLoading
-//    private val _userName = MutableLiveData("Budi")
-//
-//    init {
-//        findUser()
-//    }
-//
-//    fun setUserName(name: String) {
-//        _userName.value = name
-//    }
-//    fun findUser() {
-//        _isLoading.value = true
-//        viewModelScope.launch {
-//            getUserListUseCase(_userName.value.toString()).collect { result ->
-//                _isLoading.value = false
-//                result.fold(
-//                    onSuccess = { users ->
-//                        _userData.value = users
-//                    },
-//                    onFailure = { error ->
-//                        Log.e(TAG, "Error fetching users: ${error.message}")
-//                    }
-//                )
-//            }
-//        }
-//    }
-//    fun findUser() {
-//        _isLoading.value = true
-//        val client = ApiConfig.getApiService().getListUsers(_userName.value.toString())
-//        client.enqueue(object : Callback<ResponseUser> {
-//            override fun onResponse(
-//                call: Call<ResponseUser>,
-//                response: Response<ResponseUser>
-//            ) {
-//                _isLoading.value = false
-//                if (response.isSuccessful) {
-//                    _userData.value = response.body()?.items
-//                } else {
-//                    Log.e(TAG, "onFailure: ${response.message()}")
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<ResponseUser>, t: Throwable) {
-//                _isLoading.value = false
-//                Log.e(TAG, "onFailure: ${t.message.toString()}")
-//            }
-//        })
-//    }
-//    companion object {
-//        private const val TAG = "HomeViewModel"
-//    }
+
 }
